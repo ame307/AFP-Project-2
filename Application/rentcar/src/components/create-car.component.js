@@ -12,22 +12,22 @@ export default class CreateCar extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            model: '',
             brand: '',
+            model: '',
             consumption: 0,
             plateNumber: ''
         }
     }
 
-    onChangeModel(e) {
-        this.setState({
-            model: e.target.value
-        })
-    }
-
     onChangeBrand(e) {
         this.setState({
             brand: e.target.value
+        })
+    }
+
+    onChangeModel(e) {
+        this.setState({
+            model: e.target.value
         })
     }
 
@@ -47,22 +47,24 @@ export default class CreateCar extends Component {
         e.preventDefault();
 
         const car = {
-            model: this.state.model,
             brand: this.state.brand,
+            model: this.state.model,
             consumption: this.state.consumption,
             plateNumber: this.state.plateNumber
         }
 
         console.log(car);
-        axios.post('http//localhost:5000/cars/add', car)
+        axios.post('http://localhost:5000/cars/add', car)
             .then(res => console.log(res.data));
 
         this.setState({
-            model: '',
-            brand: '',
+            brand: "",
+            model: "",
             consumption: 0,
-            plateNumber: ''
+            plateNumber: ""
         })
+
+        //window.location = '/create';
     }
 
 
@@ -71,16 +73,7 @@ export default class CreateCar extends Component {
         return (
             <div>
                 <h3>Create New Car</h3>
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Model: </label>
-                        <input type="text"
-                            required
-                            className="form-control"
-                            value={this.state.model}
-                            onChange={this.onChangeModel}
-                        />
-                    </div>
+                <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
                         <label>Brand: </label>
                         <input type="text"
@@ -88,6 +81,15 @@ export default class CreateCar extends Component {
                             className="form-control"
                             value={this.state.brand}
                             onChange={this.onChangeBrand}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Model: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.model}
+                            onChange={this.onChangeModel}
                         />
                     </div>
                     <div className="form-group">
@@ -101,8 +103,8 @@ export default class CreateCar extends Component {
                     </div>
                     <div className="form-group">
                         <label>Plate number: </label>
-                        <input
-                            type="text"
+                        <input type="text"
+                            required
                             className="form-control"
                             value={this.state.plateNumber}
                             onChange={this.onChangePlateNumber}
