@@ -3,6 +3,8 @@ let Admin = require('../models/admin.model');
 const bcrypt = require("bcrypt");
 const session = require('express-session');
 
+
+
 router.route('/').get((req, res) =>{
     Admin.find()
         .then(admins => res.json(admins))
@@ -53,23 +55,24 @@ router.route('/update/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error' + err));
 });
 
-// // Sign up
+router.post('/login', function (req, res) {
+  let username = req.body.username;
+  let password = req.body.password;
+  Admin.findOne({username: username}, (err, userData) => {
+    if(!err && userData !== null){
+        if(password == userData.password){
+          res.json('Logged in!');
+        }
+        else{
+          err => res.status(400).json('Error' + err);
+        }
+    }
+    else{
+      res.status(401).send('Incorrect username!');
+    }
+  })
+})
 
-// router.route('/signup').post((req, res) => {
-//     let {username, email, password} = req.body;
-
-//     let adminData = {
-//         username,
-//         email,
-//         password: bcrypt.hashSync(password, 5)
-        
-//     };
-
-//     let newAdmin = new Admin(adminData);
-//     newAdmin.save()
-//         .then(() => res.json('Admin added!'))
-//         .catch(err => res.status(400).json('Error ' + err));
-// })
 
 // // Sign in
 
@@ -96,6 +99,26 @@ router.route('/update/:id').post((req, res) => {
 //         }
 //     } )
 // })
+
+
+// // Sign up
+
+// router.route('/signup').post((req, res) => {
+//     let {username, email, password} = req.body;
+
+//     let adminData = {
+//         username,
+//         email,
+//         password: bcrypt.hashSync(password, 5)
+        
+//     };
+
+//     let newAdmin = new Admin(adminData);
+//     newAdmin.save()
+//         .then(() => res.json('Admin added!'))
+//         .catch(err => res.status(400).json('Error ' + err));
+// })
+
 
 // // Logout
 

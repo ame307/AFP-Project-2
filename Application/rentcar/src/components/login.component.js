@@ -36,7 +36,7 @@ export default class Login extends Component {
         }
 
         console.log(user);
-        axios.post('http://localhost:5000/login', user)
+        axios.post('http://localhost:5000/admins/login', user)
             .then(res => console.log(res.data));
 
         this.setState({
@@ -44,7 +44,7 @@ export default class Login extends Component {
             password: "",
         })
 
-        //window.location = '/create';
+        window.location = '/';
     }
 
 
