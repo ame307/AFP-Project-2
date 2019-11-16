@@ -6,6 +6,7 @@ import Navbar from "./components/navbar.component";
 import CarsList from "./components/cars-list.component";
 import EditCar from "./components/edit-car.component";
 import CreateCar from "./components/create-car.component";
+import Login from "./components/login.component";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact component={CarsList} />
         <Route path="/edit/:id" component={EditCar} />
         <Route path="/create" component={CreateCar} />
+        <Route path="/login" component={Login} />
       </div>
     </Router>
   );
