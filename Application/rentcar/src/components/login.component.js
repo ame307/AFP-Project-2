@@ -52,7 +52,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
-                <h3>Create New Car</h3>
+                <h3>Login</h3>
                 <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
                         <label>Username: </label>
@@ -73,7 +73,7 @@ export default class Login extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create Car" className="btn btn-primary" />
+                        <input type="submit" value="Login" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
