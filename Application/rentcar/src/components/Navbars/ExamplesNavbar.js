@@ -71,7 +71,7 @@ function ExamplesNavbar() {
     >
       <Container>
         <div className="navbar-translate">
-        <NavbarBrand
+          <NavbarBrand
             data-placement="bottom"
             to="/index"
             //target="_blank"
@@ -82,7 +82,7 @@ function ExamplesNavbar() {
 
           <NavbarBrand
             data-placement="bottom"
-            to="/register-page"
+            to="/car-list-page"
             //target="_blank"
             tag={Link}
           >
@@ -97,7 +97,7 @@ function ExamplesNavbar() {
           >
             Kapcsolat
           </NavbarBrand>
-          
+
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
@@ -117,7 +117,7 @@ function ExamplesNavbar() {
         >
           <Nav navbar>
 
-            
+
             <NavItem>
               <NavLink
                 data-placement="bottom"

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class CarListPage extends Component {
      render() {
        return (
@@ -10,6 +9,5 @@ class CarListPage extends Component {
        )
    }
 }
-
 
 export default CarListPage;
