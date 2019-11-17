@@ -52,6 +52,7 @@ router.route('/update/:id').post((req, res) => {
 });
 
 router.post('/login', function (req, res) {
+  if(!req.session.username){
   let username = req.body.username;
   let password = req.body.password;
   Admin.findOne({username: username}, (err, userData) => {
@@ -70,6 +71,10 @@ router.post('/login', function (req, res) {
       res.status(401).send('Incorrect username!');
     }
   })
+}
+else{
+  res.status(400).send('Already logged in!');
+}
 })
 
 // Logout
