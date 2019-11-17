@@ -7,6 +7,7 @@ import CarsList from "./components/cars-list.component";
 import EditCar from "./components/edit-car.component";
 import CreateCar from "./components/create-car.component";
 import Login from "./components/login.component";
+import Logout from "./components/logout.component";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/edit/:id" component={EditCar} />
         <Route path="/create" component={CreateCar} />
         <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
       </div>
     </Router>
   );

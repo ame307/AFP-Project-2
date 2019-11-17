@@ -1,3 +1,4 @@
+const express = require('express');
 const router = require('express').Router();
 let Car = require('../models/car.model');
 
@@ -8,27 +9,35 @@ router.route('/').get((req, res) =>{
 });
 
 router.route('/add').post((req, res) => {
-    const brand = req.body.brand;
-    const model = req.body.model;
-    const consumption = Number(req.body.consumption);
-    const plateNumber = req.body.plateNumber;
-
-    const newCar = new Car({
-        brand,
-        model,
-        consumption,
-        plateNumber
-    });
-
-    newCar.save()
-    .then(() => res.json('Car added!'))
-    .catch(err => res.status(400).json('Error ' + err));
+    const sessUser = req.session.username;
+    console.log(sessUser);
+    if(sessUser){
+        const brand = req.body.brand;
+        const model = req.body.model;
+        const consumption = Number(req.body.consumption);
+        const plateNumber = req.body.plateNumber;
+    
+        const newCar = new Car({
+            brand,
+            model,
+            consumption,
+            plateNumber
+        });
+    
+        newCar.save()
+        .then(() => res.json('Car added!'))
+        .catch(err => res.status(400).json('Error ' + err));
+    }
+    else{
+        res.status(401).send("You're not logged in!");
+    }
 });
 
 router.route('/:id').get((req, res) => {
     Car.findById(req.params.id)
         .then(car => res.json(car))
         .catch(err => res.status(400).json('Error' + err));
+        
 });
 
 router.route('/:id').delete((req, res) => {

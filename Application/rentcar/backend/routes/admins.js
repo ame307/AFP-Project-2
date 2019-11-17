@@ -1,9 +1,5 @@
 const router = require('express').Router();
 let Admin = require('../models/admin.model');
-const bcrypt = require("bcrypt");
-const session = require('express-session');
-
-
 
 router.route('/').get((req, res) =>{
     Admin.find()
@@ -61,10 +57,13 @@ router.post('/login', function (req, res) {
   Admin.findOne({username: username}, (err, userData) => {
     if(!err && userData !== null){
         if(password == userData.password){
-          res.json('Logged in!');
+
+          req.session.username = username;
+          const sessUser = req.session.username;
+          res.status(200).send('Login successful!');
         }
         else{
-          err => res.status(400).json('Error' + err);
+          res.status(401).send('Incorrect password!');
         }
     }
     else{
@@ -73,33 +72,18 @@ router.post('/login', function (req, res) {
   })
 })
 
+// Logout
 
-// // Sign in
-
-// router.route('/login').post((req, res) => {
-//     let {username, password} = req.body;
-//     Admin.findOne({username: username}, 'username email password', (err, userData) => {
-//         if (!err){
-//             let passwordCheck = bcrypt.compareSync(password, userData.password);
-//             if(passwordCheck){
-//                 req.session.loggedin=true;
-//                 req.session.admin = {
-//                     email: userData.email,
-//                     username: userData.username,
-//                     id: userData._id
-//                 };
-//                 res.status(200).send('You are logged in!');
-//             }
-//             else{
-//                 res.status(401).send('Incorrect password!');
-//             }
-//         }
-//         else{
-//             res.status(401).send('Invalid login credentials!');
-//         }
-//     } )
-// })
-
+router.all('/logout', (req, res) => {
+  const sessUser = req.session.username;
+  if(sessUser){
+    req.session.destroy();
+    res.status(200).send('Logout successful!');
+  }
+  else{
+    res.status(401).send("You're not logged in!");
+  }
+})
 
 // // Sign up
 
@@ -118,32 +102,5 @@ router.post('/login', function (req, res) {
 //         .then(() => res.json('Admin added!'))
 //         .catch(err => res.status(400).json('Error ' + err));
 // })
-
-
-// // Logout
-
-// app.all('/logout', (req, res) => {
-//     req.session.destroy();
-//     res.status(200).send('logout successful')
-//   })
-
-/*
-  //authorization
-  app.use((req, res, next) => {
-    if (req.session.admin) {
-      next();
-    } else {
-      res.status(401).send('Authrization failed! Please login');
-    }
-  });
-  
-  app.get('/protected', (req, res) => {
-    res.send(`You seeing this because you have a valid session.
-          Your username is ${req.session.admin.username} 
-          and email is ${req.session.admin.email}.
-      `)
-  })
-
-*/
 
 module.exports = router;

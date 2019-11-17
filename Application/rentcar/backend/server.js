@@ -1,11 +1,18 @@
 const express = require('express');
+const session = require('express-session');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
 require('dotenv').config();
-
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use(session({
+    name: 'test',
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+  }));
+
 
 app.use(cors());
 app.use(express.json());
