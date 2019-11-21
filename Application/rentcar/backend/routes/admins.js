@@ -1,14 +1,17 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 let Admin = require('../models/admin.model');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 
-router.route('/').get((req, res) =>{
+router.get('/', (req, res) =>{
     Admin.find()
         .then(admins => res.json(admins))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
 /*
-router.route('/add').post((req, res) => {
+router.post('/add', (req, res) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
@@ -25,19 +28,19 @@ router.route('/add').post((req, res) => {
 });
 */
 
-router.route('/:id').get((req, res) => {
+router.get('/:id', (req, res) => {
     Admin.findById(req.params.id)
         .then(admin => res.json(admin))
         .catch(err => res.status(400).json('Error' + err));
 });
 
-router.route('/:id').delete((req, res) => {
+router.delete('/:id', (req, res) => {
     Admin.findByIdAndDelete(req.params.id)
         .then(admin => res.json('Admin deleted!'))
         .catch(err => res.status(400).json('Error' + err));
 });
 
-router.route('/update/:id').post((req, res) => {
+router.post('/update/:id', (req, res) => {
     Admin.findById(req.params.id)
         .then(admin => {
             admin.username = req.body.username;
@@ -52,16 +55,23 @@ router.route('/update/:id').post((req, res) => {
 });
 
 router.post('/login', function (req, res) {
-  if(!req.session.username){
-  let username = req.body.username;
-  let password = req.body.password;
+  const {username, password} = req.body;
+  
   Admin.findOne({username: username}, (err, userData) => {
     if(!err && userData !== null){
         if(password == userData.password){
-
-          req.session.username = username;
-          const sessUser = req.session.username;
-          res.status(200).send('Login successful!');
+          jwt.sign(
+            { id: userData.id},
+            config.get('jwtSecret'),
+            { expiresIn: 3600},
+            (err, token) => {
+              if(err) throw err;
+              res.json({
+                token,
+                userData
+              })
+            }
+          )
         }
         else{
           res.status(401).send('Incorrect password!');
@@ -71,41 +81,20 @@ router.post('/login', function (req, res) {
       res.status(401).send('Incorrect username!');
     }
   })
-}
-else{
-  res.status(400).send('Already logged in!');
-}
 })
 
 // Logout
 
 router.all('/logout', (req, res) => {
   const sessUser = req.session.username;
-  if(sessUser){
+  if(sessUser !== undefined){
     req.session.destroy();
     res.status(200).send('Logout successful!');
   }
   else{
+    console.log(`${sessUser}`);
     res.status(401).send("You're not logged in!");
   }
 })
-
-// // Sign up
-
-// router.route('/signup').post((req, res) => {
-//     let {username, email, password} = req.body;
-
-//     let adminData = {
-//         username,
-//         email,
-//         password: bcrypt.hashSync(password, 5)
-        
-//     };
-
-//     let newAdmin = new Admin(adminData);
-//     newAdmin.save()
-//         .then(() => res.json('Admin added!'))
-//         .catch(err => res.status(400).json('Error ' + err));
-// })
 
 module.exports = router;

@@ -1,17 +1,18 @@
 const express = require('express');
-const router = require('express').Router();
+const router = express.Router();
 let Car = require('../models/car.model');
+const auth = require('../middleware/auth');
 
-router.route('/').get((req, res) =>{
+router.get('/', (req, res) =>{
     Car.find()
         .then(cars => res.json(cars))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const sessUser = req.session.username;
-    console.log(sessUser);
-    if(sessUser){
+router.post('/add', auth, (req, res) => {
+    //const sessUser = req.session.username;
+    //console.log(sessUser);
+    //if(sessUser !== undefined){
         const brand = req.body.brand;
         const model = req.body.model;
         const consumption = Number(req.body.consumption);
@@ -27,26 +28,26 @@ router.route('/add').post((req, res) => {
         newCar.save()
         .then(() => res.json('Car added!'))
         .catch(err => res.status(400).json('Error ' + err));
-    }
-    else{
-        res.status(401).send("You're not logged in!");
-    }
+    //}
+    //else{
+    //    res.status(401).send("You're not logged in!");
+    //}
 });
 
-router.route('/:id').get((req, res) => {
+router.get('/:id', (req, res) => {
     Car.findById(req.params.id)
         .then(car => res.json(car))
         .catch(err => res.status(400).json('Error' + err));
         
 });
 
-router.route('/:id').delete((req, res) => {
+router.delete('/:id', (req, res) => {
     Car.findByIdAndDelete(req.params.id)
         .then(car => res.json('Car deleted!'))
         .catch(err => res.status(400).json('Error' + err));
 });
 
-router.route('/update/:id').post((req, res) => {
+router.post('/update/:id', (req, res) => {
     Car.findById(req.params.id)
         .then(car => {
             car.brand = req.body.brand;

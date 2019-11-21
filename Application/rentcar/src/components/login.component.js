@@ -44,7 +44,7 @@ export default class Login extends Component {
             password: "",
         })
 
-        window.location = '/';
+        //window.location = '/';
     }
 
 
