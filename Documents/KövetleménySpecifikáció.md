@@ -26,19 +26,19 @@ AZ EURÓPAI PARLAMENT ÉS A TANÁCS 1169/2011/EU RENDELETE (2011. október 25.) 
 
 ## 5.Jelenlegi üzleti folyamatok modellje
 
-![JelenlegiÜzletiFolyamatok](Documents/Pictures/jelenlegi.jpg)
+![JelenlegiÜzletiFolyamatok](Pictures/jelenlegi.jpg)
  
 A jelenlegi rendszerben az megrendelő ügyfeleinek, elkell menniük az autókölcsönző telephelyére, ahol láthatja milyen autó kínálattal rendelkeznek, ezek közül tud választani egyet. Ezután egy ott dolgozóval pontosan fixálják az adatokat, hogy mikortól kell, mennyi időre, a bérlési folyamat első szakasza ezzel végbe is zajlott. A második szakasza a bérlésnek akkor kezdődik amikor érte megy az előre egyeztetett autóért, ilyenkor keresnie kell egy ott dolgozót, aki segít neki átadja a szükséges dolgokat, ezután használhatja az autót, majd végül a bérlés lejáratának napján visszahozza az autót.
 
 ## 6.Igényelt üzleti folyamatok modellje
  
-![IgényeltÜzletiFolyamatok](Documents/Pictures/jelenlegi.jpg)
+![IgényeltÜzletiFolyamatok](Pictures/jelenlegi.jpg)
 
 A megrendelő ügyfele otthon, vagy akár a buszon ülve is képes információt szeretni arról, hogy milyen autók lelhetők fel az autó kölcsönzőben, ezeket telefonon vagy akár e-mail-en is letudja foglalni egy előre meghatározott időpontra. Az előre fixált időponton az ügyfél elfárad az autókölcsönzőbe, ahol az ott dolgozók már várni fogják. Elkísérik az általa kiválasztott autóhoz, majd átadják a szükséges dolgokat. Ezután az ügyfél használhatja az autót. A bérlési idő lejáratának napján visszahozza.
 
 ## 7.Követelmény lista
  
-![KövetelményLista](Documents/Pictures/kovlista.jpg)
+![KövetelményLista](Pictures/kovlista.jpg)
 
 ## 8.Fogalom szótár
 
