@@ -1,21 +1,3 @@
-/*!
-
-=========================================================
-* Paper Kit React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link } from "react-router-dom";
 // nodejs library that concatenates strings
@@ -31,9 +13,9 @@ import {
   Nav,
   Container
 } from "reactstrap";
-import ProfilePage from "views/examples/AboutUsPage";
+//import ProfilePage from "views/examples/AboutUsPage";
 
-function ExamplesNavbar() {
+function BasicNavBar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
@@ -71,7 +53,7 @@ function ExamplesNavbar() {
     >
       <Container>
         <div className="navbar-translate">
-          <NavbarBrand
+        <NavbarBrand
             data-placement="bottom"
             to="/index"
             //target="_blank"
@@ -82,7 +64,7 @@ function ExamplesNavbar() {
 
           <NavbarBrand
             data-placement="bottom"
-            to="/car-list-page"
+            to="/our-cars"
             //target="_blank"
             tag={Link}
           >
@@ -91,13 +73,23 @@ function ExamplesNavbar() {
 
           <NavbarBrand
             data-placement="bottom"
-            to="/profile-page"
+            to="/contact-page"
             //target="_blank"
             tag={Link}
           >
             Kapcsolat
           </NavbarBrand>
 
+          {/* <NavbarBrand
+            data-placement="bottom"
+            to="/car-list-page"
+            //target="_blank"
+            tag={Link}
+          >
+            Próba oldal
+          </NavbarBrand> */}
+          
+          
           <button
             aria-expanded={navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
@@ -117,7 +109,7 @@ function ExamplesNavbar() {
         >
           <Nav navbar>
 
-
+            
             <NavItem>
               <NavLink
                 data-placement="bottom"
@@ -158,4 +150,4 @@ function ExamplesNavbar() {
   );
 }
 
-export default ExamplesNavbar;
+export default BasicNavBar;

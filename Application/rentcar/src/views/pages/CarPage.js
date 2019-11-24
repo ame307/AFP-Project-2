@@ -4,24 +4,24 @@ import {Map, GoogleApiWrapper } from 'google-maps-react';
 
 // reactstrap components
 import {
-  // Button,
-  // Label,
-  // FormGroup,
-  // Input,
-  // NavItem,
-  // NavLink,
-  // Nav,
-  // TabContent,
-  // TabPane,
+  Button,
+  Label,
+  FormGroup,
+  Input,
+  NavItem,
+  NavLink,
+  Nav,
+  TabContent,
+  TabPane,
   Container,
   Row,
   Col
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
-import ProfilePageHeader from "components/Headers/RegisterPageHeader.js";
-import DemoFooter from "components/Footers/DemoFooter.js";
+import BasicNavBar from "components/Navbars/BasicNavBar.js";
+import ContactHeader from "components/Headers/ContactHeader.js";
+import DemoFooter from "components/Footers/BasicFooter.js";
 
 function ProfilePage() {
   const [activeTab, setActiveTab] = React.useState("1");
@@ -42,8 +42,8 @@ function ProfilePage() {
   return (
 
     <>
-      <ExamplesNavbar />
-      <ProfilePageHeader />
+      <BasicNavBar />
+      <ContactHeader />
       <div className="section profile-content">
         <Container>
           <div className="owner">
@@ -56,8 +56,21 @@ function ProfilePage() {
           </div>
           <Row>
             <Col className="ml-auto mr-auto text-center" md="6">
-              <img>
-              </img>
+              
+              <h3>
+                Telephely: 1024, Budapest Kocsis utca 5.
+                <br></br>
+              </h3>
+              <h3>
+              Telefonszámaink:<br></br> 06-30/446-5566 <br></br> 06-20/644-6655 <br></br> 06-70/565-4464
+              </h3>
+              <h3>
+                E-mail címünk: stacionariusauto@auto.hu
+              </h3>
+              <br />
+              <div>
+              </div>
+             
             </Col>
           </Row>
           <br />
@@ -65,7 +78,7 @@ function ProfilePage() {
          
         </Container>
       </div>
-      <DemoFooter />
+      <BasicFooter />
     </>
   );
 }

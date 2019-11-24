@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // reactstrap components
@@ -6,7 +5,7 @@ import {
   Button,
   Card,
   CardBody,
-  // CardFooter,
+  CardFooter,
   CardTitle,
   Form,
   Input,
@@ -19,9 +18,9 @@ import {
 } from "reactstrap";
 
 // core components
-import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
+import BasicNavBar from "components/Navbars/BasicNavBar.js";
 import LandingPageHeader from "components/Headers/LandingPageHeader.js";
-import DemoFooter from "components/Footers/DemoFooter.js";
+import BasicFooter from "components/Footers/BasicFooter.js";
 
 function LandingPage() {
   document.documentElement.classList.remove("nav-open");
@@ -33,7 +32,7 @@ function LandingPage() {
   });
   return (
     <>
-      <ExamplesNavbar />
+      <BasicNavBar />
       <LandingPageHeader />
       <div className="main">
         <div className="section text-center">
@@ -60,14 +59,14 @@ function LandingPage() {
             </Row>
             <br />
             <br />
-
+            
           </Container>
         </div>
         <div className="section section-dark text-center">
           <Container>
             <h2 className="title">Kik vagyunk mi?</h2>
             <Row>
-              <Col md="4">
+            <Col md="4">
                 <Card className="card-profile card-plain">
                   <div className="card-avatar">
                     <a href="#pablo" onClick={e => e.preventDefault()}>
@@ -85,8 +84,8 @@ function LandingPage() {
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </CardBody>
                 </Card>
@@ -109,8 +108,8 @@ function LandingPage() {
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </CardBody>
                 </Card>
@@ -133,8 +132,8 @@ function LandingPage() {
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </CardBody>
                 </Card>
@@ -157,8 +156,8 @@ function LandingPage() {
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </CardBody>
                 </Card>
@@ -181,8 +180,8 @@ function LandingPage() {
                       </div>
                     </a>
                     <p className="card-description text-center">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                   </CardBody>
                 </Card>
@@ -239,7 +238,7 @@ function LandingPage() {
           </Container>
         </div>
       </div>
-      <DemoFooter />
+      <BasicFooter />
     </>
   );
 }
