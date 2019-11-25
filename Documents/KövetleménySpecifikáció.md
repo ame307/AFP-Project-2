@@ -32,7 +32,7 @@ A jelenlegi rendszerben az megrendelő ügyfeleinek, elkell menniük az autókö
 
 ## 6.Igényelt üzleti folyamatok modellje
  
-![IgényeltÜzletiFolyamatok](Pictures/jelenlegi.jpg)
+![IgényeltÜzletiFolyamatok](Pictures/igenyelt.jpg)
 
 A megrendelő ügyfele otthon, vagy akár a buszon ülve is képes információt szeretni arról, hogy milyen autók lelhetők fel az autó kölcsönzőben, ezeket telefonon vagy akár e-mail-en is letudja foglalni egy előre meghatározott időpontra. Az előre fixált időponton az ügyfél elfárad az autókölcsönzőbe, ahol az ott dolgozók már várni fogják. Elkísérik az általa kiválasztott autóhoz, majd átadják a szükséges dolgokat. Ezután az ügyfél használhatja az autót. A bérlési idő lejáratának napján visszahozza.
 
