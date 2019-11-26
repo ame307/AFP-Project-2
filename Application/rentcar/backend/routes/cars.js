@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 let Car = require('../models/car.model');
-const auth = require('../middleware/auth');
 
 router.get('/', (req, res) =>{
     Car.find()
@@ -9,10 +8,7 @@ router.get('/', (req, res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.post('/add', auth, (req, res) => {
-    //const sessUser = req.session.username;
-    //console.log(sessUser);
-    //if(sessUser !== undefined){
+router.post('/add', (req, res) => {
         const brand = req.body.brand;
         const model = req.body.model;
         const consumption = Number(req.body.consumption);
@@ -28,10 +24,6 @@ router.post('/add', auth, (req, res) => {
         newCar.save()
         .then(() => res.json('Car added!'))
         .catch(err => res.status(400).json('Error ' + err));
-    //}
-    //else{
-    //    res.status(401).send("You're not logged in!");
-    //}
 });
 
 router.get('/:id', (req, res) => {
