@@ -6,3 +6,4 @@
 ## 3. Üzleti folyamatok modellje
 ## 4. Funkcionális leírás
 ## 5. Fizikai környezet
+## 6. Architektúrális terv
