@@ -9,7 +9,7 @@ const Car = props => (
         <td>{props.car.consumption}</td>
         <td>{props.car.plateNumber}</td>
         <td>
-            <Link to={"/edit/"+props.car._id}>edit</Link> | <a href='#' onClick={() => { props.deleteCar(props.car._id) }}>delete</a>
+            <Link to={"/edit/"+props.car._id}>Szerkesztés</Link> | <a href='#' onClick={() => { props.deleteCar(props.car._id) }}>Törlés</a>
         </td>
     </tr>    
 )
@@ -50,15 +50,15 @@ export default class CarsList extends Component {
     render() {
         return (
             <div>
-                <h3>Cars</h3>
+                <h3>Autók</h3> <br></br>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
-                            <th>Brand</th>
-                            <th>Model</th>
-                            <th>Consumption</th>
-                            <th>Plate number</th>
-                            <th>Actions</th>
+                            <th>Márka</th>
+                            <th>Típus</th>
+                            <th>Fogyasztás L/100Km</th>
+                            <th>Rendszám</th>
+                            <th>Interakciók</th>
                         </tr>
                     </thead>
                     <tbody>

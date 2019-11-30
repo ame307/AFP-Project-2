@@ -49,16 +49,14 @@ function ProfilePage() {
       <ContactHeader />
       <div className="section profile-content">
         <Container>
-          <div className="owner">
-            <div className="name">
-              <h2 className="title">
-               Itt jelennek meg az autók...  <br />
-               <CarList>
-              
-              </CarList>
-              </h2>
-            </div>
-          </div>         
+          <h3>
+            <div className="owner">
+              <div className="name">
+                <CarList>
+                </CarList>
+              </div>
+            </div>  
+          </h3> 
         </Container>
       </div>
       <BasicFooter />

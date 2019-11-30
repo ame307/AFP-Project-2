@@ -82,35 +82,33 @@ function ProfilePage() {
         <Container>
           <div className="owner">
             <form>
-            <div className="name">
-              <h2 className="title">
-               Autók hozzáadása  <br />  </h2>
+              <div className="name">
+                <h3 className="title">
+                  <h3>Autók hozzáadása</h3>  <br />
+                  <CreateCar>
+                  </CreateCar>
+                </h3>
 
-               <CreateCar>
-
-                </CreateCar>
-
-               {/* <div class="form-group">
-               <h3>Márka</h3>
-               <input placeholder="Ide írja az autó márkáját" type="text" class="form-control"></input>
-               <br />
-               <h3>Típus</h3>
-               <input placeholder="Ide írja az autó típusát" type="text" class="form-control"></input>
-               <br />
-               <h3>Fogyasztás</h3>
-               <input placeholder="Ide írja mennyi üzemanyagot fogyaszt az autó" type="text" class="form-control"></input>
-               <br />
-               <h3>Rendszám</h3>
-               <input placeholder="Ide írja az autó rendszámát" type="text" class="form-control"></input>
-               <br />
-               <h3>Kép feltöltése</h3>
-               <ImageUploader>
-               </ImageUploader>
-               <button type="submit" class="btn-round ml-1 btn btn-info">Hozzáadás</button>
-               </div> */}
-            </div>
+                  {/* <div class="form-group">
+                  <h3>Márka</h3>
+                  <input placeholder="Ide írja az autó márkáját" type="text" class="form-control"></input>
+                  <br />
+                  <h3>Típus</h3>
+                  <input placeholder="Ide írja az autó típusát" type="text" class="form-control"></input>
+                  <br />
+                  <h3>Fogyasztás</h3>
+                  <input placeholder="Ide írja mennyi üzemanyagot fogyaszt az autó" type="text" class="form-control"></input>
+                  <br />
+                  <h3>Rendszám</h3>
+                  <input placeholder="Ide írja az autó rendszámát" type="text" class="form-control"></input>
+                  <br />
+                  <h3>Kép feltöltése</h3>
+                  <ImageUploader>
+                  </ImageUploader>
+                  <button type="submit" class="btn-round ml-1 btn btn-info">Hozzáadás</button>
+                  </div> */}
+              </div>
             </form>
-            
           </div>         
         </Container>
       </div>

@@ -74,7 +74,7 @@ export default class CreateCar extends Component {
             <div>
                 <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
-                        <label>Brand: </label>
+                        <label>Márka: </label>
                         <input type="text"
                             placeholder="Ide írja a márkát"
                             required
@@ -84,7 +84,7 @@ export default class CreateCar extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Model: </label>
+                        <label>Típus: </label>
                         <input type="text"
                             placeholder="Ide írja a modellt"
                             required
@@ -94,7 +94,7 @@ export default class CreateCar extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Consumption: </label>
+                        <label>Fogyasztás L/100Km: </label>
                         <input type="number"
                             placeholder="Ide írja be a fogyasztást"
                             required
@@ -104,7 +104,7 @@ export default class CreateCar extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Plate number: </label>
+                        <label>Rendszám: </label>
                         <input type="text"
                              placeholder="Ide írja a rendszámot"
                             required

@@ -4631,6 +4631,10 @@ License - nucleoapp.com/license/
 .owner .name h4 {
   margin-top: 10px; }
 
+.section profile-content .owner .name {
+  font-weight: bold;
+}
+
 .profile-tabs {
   margin: 50px 0;
   min-height: 300px; }
