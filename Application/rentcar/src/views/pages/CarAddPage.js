@@ -25,6 +25,9 @@ import AdminNavbar from "components/Navbars/AdminNavBar.js";
 import ContactHeader from "components/Headers/ContactHeader.js";
 import BasicFooter from "components/Footers/BasicFooter.js";
 
+import CreateCar from "components/create-car.component.js";
+
+
 class App extends React.Component {
  
   constructor(props) {
@@ -52,6 +55,8 @@ class App extends React.Component {
   }
 }
 
+
+
 function ProfilePage() {
   const [activeTab, setActiveTab] = React.useState("1");
 
@@ -76,32 +81,36 @@ function ProfilePage() {
       <div className="section profile-content">
         <Container>
           <div className="owner">
-            
+            <form>
             <div className="name">
               <h2 className="title">
                Autók hozzáadása  <br />  </h2>
-               <div class="form-group">
+
+               <CreateCar>
+
+                </CreateCar>
+
+               {/* <div class="form-group">
                <h3>Márka</h3>
                <input placeholder="Ide írja az autó márkáját" type="text" class="form-control"></input>
                <br />
                <h3>Típus</h3>
                <input placeholder="Ide írja az autó típusát" type="text" class="form-control"></input>
                <br />
-               <h3>Évjárat</h3>
-               <input placeholder="Ide írja az autó évszámát" type="text" class="form-control"></input>
+               <h3>Fogyasztás</h3>
+               <input placeholder="Ide írja mennyi üzemanyagot fogyaszt az autó" type="text" class="form-control"></input>
                <br />
-               <h3>Üzemanyag típusa</h3>
-               <input placeholder="Ide írja milyen üzemanyagot használ az autó" type="text" class="form-control"></input>
-               <br />
-               <h3>Futott km</h3>
-               <input placeholder="Ide írja a futott kilométerek számát" type="text" class="form-control"></input>
+               <h3>Rendszám</h3>
+               <input placeholder="Ide írja az autó rendszámát" type="text" class="form-control"></input>
                <br />
                <h3>Kép feltöltése</h3>
                <ImageUploader>
                </ImageUploader>
-               <button type="button" class="btn-round ml-1 btn btn-info">Hozzáadás</button>
-               </div>
+               <button type="submit" class="btn-round ml-1 btn btn-info">Hozzáadás</button>
+               </div> */}
             </div>
+            </form>
+            
           </div>         
         </Container>
       </div>

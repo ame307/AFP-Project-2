@@ -23,6 +23,9 @@ import AdminNavbar from "components/Navbars/AdminNavBar.js";
 import ContactHeader from "components/Headers/ContactHeader.js";
 import BasicFooter from "components/Footers/BasicFooter.js";
 
+import CarList from "components/cars-list.component.js";
+import EditCar from "components/edit-car.component.js";
+
 function ProfilePage() {
   const [activeTab, setActiveTab] = React.useState("1");
 
@@ -47,10 +50,12 @@ function ProfilePage() {
       <div className="section profile-content">
         <Container>
           <div className="owner">
-            
             <div className="name">
               <h2 className="title">
                Itt jelennek meg az autók...  <br />
+               <CarList>
+              
+              </CarList>
               </h2>
             </div>
           </div>         

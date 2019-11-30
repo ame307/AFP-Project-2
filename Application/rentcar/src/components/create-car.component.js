@@ -72,11 +72,11 @@ export default class CreateCar extends Component {
     render() {
         return (
             <div>
-                <h3>Create New Car</h3>
                 <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
                         <label>Brand: </label>
                         <input type="text"
+                            placeholder="Ide írja a márkát"
                             required
                             className="form-control"
                             value={this.state.brand}
@@ -86,6 +86,7 @@ export default class CreateCar extends Component {
                     <div className="form-group">
                         <label>Model: </label>
                         <input type="text"
+                            placeholder="Ide írja a modellt"
                             required
                             className="form-control"
                             value={this.state.model}
@@ -95,6 +96,7 @@ export default class CreateCar extends Component {
                     <div className="form-group">
                         <label>Consumption: </label>
                         <input type="number"
+                            placeholder="Ide írja be a fogyasztást"
                             required
                             className="form-control"
                             value={this.state.consumption}
@@ -104,6 +106,7 @@ export default class CreateCar extends Component {
                     <div className="form-group">
                         <label>Plate number: </label>
                         <input type="text"
+                             placeholder="Ide írja a rendszámot"
                             required
                             className="form-control"
                             value={this.state.plateNumber}
@@ -112,6 +115,7 @@ export default class CreateCar extends Component {
                     </div>
 
                     <div className="form-group">
+                        
                         <input type="submit" value="Create Car" className="btn btn-primary" />
                     </div>
                 </form>
