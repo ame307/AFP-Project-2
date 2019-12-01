@@ -24,5 +24,11 @@ Az általunk kínált megoldással azonban ez a folyamat leegyszerűsödne. Emel
 <p>Először emailba, majd telefonon leegyezteti az időpontot a bérlésre vonatkozóan. Így már csak a megbeszélt időpontban kell megjelennie és elhoznia a járművét. A kölcsönzés végét jelentő dátumon pedig visszaviszi ás átadja a bérelt járművet. Így újra bérelhetővé válik.</p>
 
 ## 4. Funkcionális leírás
+Az összes ügyfél számára látható az éppen bérelhető autók valamint a kölcsönzővel kapcsolatos adatok.
+Azonban csak az autókkal kapcsolatos műveleteket csak az üzletvezető képes módosítani.
+Leggyakoribb használati esete azonban mégis az ügyfelek böngészése lesz a weboldalon.
+
 ## 5. Fizikai környezet
+Az alkalmazás bármilyen operációs rendszeren képes lesz elfutni, mivel egy webes alkalmazásról van szó, az általunk készített kódot a különböző böngészők képesek értelmezni. Ebből adódóan nem igényel hatalmas erőforrásokat, egy kétmagos processzor, valamint 2-4GB memóriával (RAM) rendelkező számitógép/laptop képes hiba nélkül futtatni az alkalmazást.
+
 ## 6. Architektúrális terv
