@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class Login extends Component {
-    constructor(props) {
-        super(props);
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/authActions";
+import classnames from "classnames";
+
+class Login extends Component {
+    constructor() {
+        super();
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
@@ -12,8 +17,19 @@ export default class Login extends Component {
         this.state = {
             username: '',
             password: ''
-        }
+        };
     }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+          this.props.history.push("/dashboard"); // push user to car-list-page when they login
+        }
+    if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+      }
 
     onChangeUsername(e) {
         this.setState({
@@ -35,14 +51,16 @@ export default class Login extends Component {
             password: this.state.password
         }
 
-        console.log(user);
-        axios.post('http://localhost:5000/admins/login', user)
-            .then(res => console.log(res.data));
+        this.props.loginUser(user); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
 
-        this.setState({
-            username: "",
-            password: "",
-        })
+        // console.log(user);
+        // axios.post('http://localhost:5000/admins/login', user)
+        //     .then(res => console.log(res.data));
+
+        // this.setState({
+        //     username: "",
+        //     password: "",
+        //})
 
         //window.location = '/';
     }
@@ -80,3 +98,17 @@ export default class Login extends Component {
         )
     }
 }
+
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+  });
+  export default connect(
+    mapStateToProps,
+    { loginUser }
+  )(Login);

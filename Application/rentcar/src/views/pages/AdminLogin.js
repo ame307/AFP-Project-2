@@ -22,7 +22,6 @@ import AdminPage from 'views/pages/AdminPage.js';
 // core components
 import Login from 'controllers/Login';
 
-
 function SectionLogin(){
   return (
     <>

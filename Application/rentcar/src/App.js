@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Redirect } from 'react-router';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import {Provider} from "react-redux";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
 
 //former code
 import "assets/css/bootstrap.min.css";
@@ -12,21 +17,54 @@ import EditCar from "./components/edit-car.component";
 import CreateCar from "./components/create-car.component";
 import Login from "./components/login.component";
 import Logout from "./components/logout.component";
+import LoginTest from "./login";
 
-function App() {
+import store from "./store";
+import PrivateRoute from "./components/private-route/PrivateRoute";
+import CarListPage from "./views/pages/CarListPage";
+
+// Check for token to keep user logged in
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+
+// Check for expired token
+const currentTime = Date.now() / 1000; // to get in milliseconds
+if (decoded.exp < currentTime) {
+  // Logout user
+  store.dispatch(logoutUser());
+  // Redirect to login
+  window.location.href = "./login";
+}
+}
+
+class App extends Component {
+  render(){
   return (
-    <Router>
-      <div className="container">
-        <Navbar />
-        <br />
-        <Route path="/" exact component={CarsList} />
-        <Route path="/edit/:id" component={EditCar} />
-        <Route path="/create" component={CreateCar} />
-        <Route path="/login" component={Login} />
-        <Route path="/logout" component={Logout} />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="container">
+          <Navbar />
+          <br />
+          <Route path="/" exact component={CarsList} />
+          <Route path="/edit/:id" component={EditCar} />
+          <Route path="/create" component={CreateCar} />
+          <Route path="/login" component={Login} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/admintest" component={LoginTest} /> 
+          <Switch>
+            <PrivateRoute exact path="/car-list-page" component={CarListPage} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
+}
 }
 
 export default App;
