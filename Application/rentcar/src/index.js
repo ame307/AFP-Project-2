@@ -19,13 +19,13 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LandingPage from "views/pages/LandingPage.js";
 import CarListPage from "views/pages/CarListPage.js";
 import CarAddPage from "views/pages/CarAddPage.js";
-import AdminLogin from "views/pages/AdminLogin";
 import AdminPage from 'views/pages/AdminPage';
-import OurCars from 'views/pages/OurCars';
+import OurCarss from 'views/pages/OurCars';
 import ContactPage from 'views/pages/ContactPage';
 import Login from "components/login.component";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/Dashboard";
+import OurCars from "./components/user-car-list.component";
 // others
 
 // Check for token to keep user logged in
@@ -67,10 +67,6 @@ ReactDOM.render(
       <Route
         path="/our-cars"
         render={props => <OurCars {...props} />}
-      />
-      <Route
-        path="/admin"
-        render={props => <AdminLogin {...props} />}
       />
       <Route
         path="/admin-page"

@@ -1,5 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {
+    Button,
+    Label,
+    FormGroup,
+    Input,
+    NavItem,
+    NavLink,
+    Nav,
+    TabContent,
+    TabPane,
+    Container,
+    Row,
+    Col
+  } from "reactstrap";
+import AdminNavbar from "components/Navbars/AdminNavBar.js";
+import ContactHeader from "components/Headers/ContactHeader.js";
+import BasicFooter from "components/Footers/BasicFooter.js";
+
 
 export default class CreateCar extends Component {
     constructor(props) {
@@ -72,7 +90,11 @@ export default class CreateCar extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit} id="create-car-form">
+
+      <div className="section profile-content">
+        <Container>
+          <div className="owner">
+          <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
                         <label>Márka: </label>
                         <input type="text"
@@ -119,6 +141,10 @@ export default class CreateCar extends Component {
                         <input type="submit" value="Create Car" className="btn btn-primary" />
                     </div>
                 </form>
+          </div>         
+        </Container>
+      </div>
+
             </div>
         )
     }

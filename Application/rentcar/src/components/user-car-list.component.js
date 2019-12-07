@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
-    Button,
-    Label,
-    FormGroup,
-    Input,
-    NavItem,
-    NavLink,
-    Nav,
-    TabContent,
-    TabPane,
     Container,
     Row,
     Col
@@ -20,6 +11,7 @@ import {
   import AdminNavbar from "components/Navbars/AdminNavBar.js";
   import ContactHeader from "components/Headers/ContactHeader.js";
   import BasicFooter from "components/Footers/BasicFooter.js";
+  import BasicNavBar from "components/Navbars/BasicNavBar.js";
 
 const Car = props => (
     <tr>
@@ -27,17 +19,16 @@ const Car = props => (
         <td>{props.car.model}</td>
         <td>{props.car.consumption}</td>
         <td>{props.car.plateNumber}</td>
-        <td>
+        {/* <td>
             <Link to={"/edit/"+props.car._id}>Szerkesztés</Link> | <a href='#' onClick={() => { props.deleteCar(props.car._id) }}>Törlés</a>
-        </td>
+        </td> */}
     </tr>    
 )
 
-export default class CarsList extends Component {
+export default class OurCars extends Component {
     constructor(props) {
         super(props);
-
-        this.deleteCar = this.deleteCar.bind(this);
+        // import BasicNavBar from "components/Navbars/BasicNavBar.js";
 
         this.state = { cars: [] };
     }
@@ -52,13 +43,6 @@ export default class CarsList extends Component {
             })
     }
 
-    deleteCar(id) {
-        axios.delete('http://localhost:5000/cars/' + id)
-            .then(res => console.log(res.data));
-        this.setState({
-            cars: this.state.cars.filter(el => el._id !== id)
-        })
-    }
 
     carsList(){
         return this.state.cars.map(currentcar => {
@@ -69,31 +53,54 @@ export default class CarsList extends Component {
     render() {
         return (
             <div>
-              
 
+<BasicNavBar />
+      <ContactHeader />
       <div className="section profile-content">
         <Container>
-            <div>
-              <div>
-                  <h5>Autók</h5> <br></br>
+          <div className="owner">
+            
+          </div>
+          <Row>
+            <Col className="ml-auto mr-auto text-center" md="6">
+            </Col>
+          </Row>
+          <br />
+          <Row>
+          <div className="section profile-content">
+        <Container>
+            <div className="section profile-content">
+                <h3>
+                <h5>Elérhető autók</h5> <br></br>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
                             <th>Márka</th>
                             <th>Típus</th>
-                            <th>Fogyasztás L/100Km</th>
+                            <th>Fogyasztás</th>
                             <th>Rendszám</th>
-                            <th>Interakciók</th>
+                            {/* <th>Interakciók</th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {this.carsList()}
                     </tbody>
                 </table>
+                    
+                </h3>
+              <div>
+                 
               </div>
             </div>  
         </Container>
       </div>
+          </Row>
+        </Container>
+      </div>
+      <BasicFooter />
+              
+
+      
 
 
 

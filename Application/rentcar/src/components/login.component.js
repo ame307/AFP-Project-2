@@ -5,6 +5,19 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
+import {
+    Button,
+    Card,
+    Form,
+    Input,
+    InputGroupAddon,
+    InputGroupText,
+    InputGroup,
+    Container,
+    Row,
+    Col
+  } from "reactstrap";
+  import BasicNavBar from "components/Navbars/BasicNavBar";
 
 class Login extends Component {
     constructor() {
@@ -22,7 +35,7 @@ class Login extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
-          this.props.history.push("/dashboard"); // push user to car-list-page when they login
+          this.props.history.push("/car-list-page"); // push user to car-list-page when they login
         }
     if (nextProps.errors) {
           this.setState({
@@ -70,10 +83,25 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <h3>Login</h3>
+
+
+                <div
+            className="section section-image section-login"
+            style={{
+            backgroundImage: "url(" + require("assets/img/car_1.jpg") + ")"
+            }}
+            >
+            <Container>
+            <BasicNavBar />
+            <Row>
+            <Col className="mx-auto" lg="4" md="6">
+            <Card className="card-register">
+            <h3 className="title mx-auto">Bejelentkezés</h3>
+            <h6 align="center">Csak adminisztrátorok részére!</h6>
+            <Form className="register-form">
                 <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
-                        <label>Username: </label>
+                        <label>Felhasználónév: </label>
                         <input type="text"
                             required
                             className="form-control"
@@ -82,7 +110,7 @@ class Login extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Password: </label>
+                        <label>Jelszó: </label>
                         <input type="password"
                             required
                             className="form-control"
@@ -91,10 +119,36 @@ class Login extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Login" className="btn btn-primary" />
+                        <input type="submit" value="Belépés" className="btn btn-primary" />
                     </div>
                 </form>
+               
+
+
+
+
+            </Form>
+            </Card>
+            <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </Col>
+            </Row>
+            </Container>
             </div>
+
+            </div>
+
         )
     }
 }
