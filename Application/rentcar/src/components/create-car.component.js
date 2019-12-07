@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {
-    Button,
-    Label,
-    FormGroup,
-    Input,
-    NavItem,
-    NavLink,
-    Nav,
-    TabContent,
-    TabPane,
-    Container,
-    Row,
-    Col
-  } from "reactstrap";
+import { Container  } from "reactstrap";
 import AdminNavbar from "components/Navbars/AdminNavBar.js";
 import ContactHeader from "components/Headers/ContactHeader.js";
 import BasicFooter from "components/Footers/BasicFooter.js";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
 
-
-export default class CreateCar extends Component {
+class CreateCar extends Component {
     constructor(props) {
         super(props);
 
@@ -36,6 +25,10 @@ export default class CreateCar extends Component {
             plateNumber: ''
         }
     }
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+      };
 
     onChangeBrand(e) {
         this.setState({
@@ -89,9 +82,9 @@ export default class CreateCar extends Component {
 
     render() {
         return (
-            <div>
-
-      <div className="section profile-content">
+<>
+      <AdminNavbar />
+      <ContactHeader />
         <Container>
           <div className="owner">
           <form onSubmit={this.onSubmit} id="create-car-form">
@@ -141,11 +134,32 @@ export default class CreateCar extends Component {
                         <input type="submit" value="Create Car" className="btn btn-primary" />
                     </div>
                 </form>
+                <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem",
+                textAlign: "center",
+              }}
+              onClick={this.onLogoutClick}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >Kijelentkezés</button>
           </div>         
         </Container>
-      </div>
-
-            </div>
+        <BasicFooter />
+</>
         )
     }
 }
+CreateCar.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(CreateCar);

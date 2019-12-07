@@ -5,12 +5,8 @@ import classnames from "classnames";
 
 // reactstrap components
 import {
-  Collapse,
   NavbarBrand,
   Navbar,
-  NavItem,
-  NavLink,
-  Nav,
   Container
 } from "reactstrap";
 //import ProfilePage from "views/examples/AboutUsPage";
@@ -69,16 +65,7 @@ function AdminNavbar() {
             tag={Link}
           >
             Autó hozzáadása/szerkesztése
-          </NavbarBrand>
-
-          <NavbarBrand
-            data-placement="bottom"
-            to="/index"
-            //target="_blank"
-            tag={Link}
-          >
-            Kijelentkezés
-          </NavbarBrand>         
+          </NavbarBrand>        
           
           <button
             aria-expanded={navbarCollapse}

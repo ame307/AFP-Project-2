@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/authActions";
-import classnames from "classnames";
 import {
-    Button,
     Card,
     Form,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
     Container,
     Row,
     Col
@@ -65,17 +57,6 @@ class Login extends Component {
         }
 
         this.props.loginUser(user); // since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
-
-        // console.log(user);
-        // axios.post('http://localhost:5000/admins/login', user)
-        //     .then(res => console.log(res.data));
-
-        // this.setState({
-        //     username: "",
-        //     password: "",
-        //})
-
-        //window.location = '/';
     }
 
 

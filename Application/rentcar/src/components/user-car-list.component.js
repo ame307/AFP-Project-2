@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
     Container,
@@ -8,7 +7,6 @@ import {
   } from "reactstrap";
   
   // core components
-  import AdminNavbar from "components/Navbars/AdminNavBar.js";
   import ContactHeader from "components/Headers/ContactHeader.js";
   import BasicFooter from "components/Footers/BasicFooter.js";
   import BasicNavBar from "components/Navbars/BasicNavBar.js";
@@ -19,17 +17,12 @@ const Car = props => (
         <td>{props.car.model}</td>
         <td>{props.car.consumption}</td>
         <td>{props.car.plateNumber}</td>
-        {/* <td>
-            <Link to={"/edit/"+props.car._id}>Szerkesztés</Link> | <a href='#' onClick={() => { props.deleteCar(props.car._id) }}>Törlés</a>
-        </td> */}
     </tr>    
 )
 
 export default class OurCars extends Component {
     constructor(props) {
         super(props);
-        // import BasicNavBar from "components/Navbars/BasicNavBar.js";
-
         this.state = { cars: [] };
     }
 
@@ -79,17 +72,14 @@ export default class OurCars extends Component {
                             <th>Típus</th>
                             <th>Fogyasztás</th>
                             <th>Rendszám</th>
-                            {/* <th>Interakciók</th> */}
                         </tr>
                     </thead>
                     <tbody>
                         {this.carsList()}
                     </tbody>
-                </table>
-                    
+                </table> 
                 </h3>
               <div>
-                 
               </div>
             </div>  
         </Container>
@@ -98,13 +88,7 @@ export default class OurCars extends Component {
         </Container>
       </div>
       <BasicFooter />
-              
-
-      
-
-
-
-            </div>
+      </div>
         )
     }
 }

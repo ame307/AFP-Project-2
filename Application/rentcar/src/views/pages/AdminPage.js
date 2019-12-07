@@ -1,21 +1,8 @@
 import React from "react";
-//google map components
-import {Map, GoogleApiWrapper } from 'google-maps-react';
 
 // reactstrap components
 import {
-  Button,
-  Label,
-  FormGroup,
-  Input,
-  NavItem,
-  NavLink,
-  Nav,
-  TabContent,
-  TabPane,
-  Container,
-  Row,
-  Col
+  Container
 } from "reactstrap";
 
 // core components

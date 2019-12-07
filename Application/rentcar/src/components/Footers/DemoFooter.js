@@ -22,10 +22,6 @@ import React from "react";
 // reactstrap components
 import { Row, Container } from "reactstrap";
 
-import classnames from "classnames";
-// reactstrap components
-
-
 function DemoFooter() {
   return (
     <footer className="footer footer-black footer-white">

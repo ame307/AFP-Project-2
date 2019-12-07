@@ -31,7 +31,6 @@ import {
   Nav,
   Container
 } from "reactstrap";
-import ProfilePage from "views/examples/AboutUsPage";
 
 function ExamplesNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");

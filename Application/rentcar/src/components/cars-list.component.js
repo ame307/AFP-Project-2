@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {
-    Button,
-    Label,
-    FormGroup,
-    Input,
-    NavItem,
-    NavLink,
-    Nav,
-    TabContent,
-    TabPane,
-    Container,
-    Row,
-    Col
-  } from "reactstrap";
+import { Container } from "reactstrap";
+import { logoutUser } from "../actions/authActions";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
   
   // core components
-  import AdminNavbar from "components/Navbars/AdminNavBar.js";
-  import ContactHeader from "components/Headers/ContactHeader.js";
-  import BasicFooter from "components/Footers/BasicFooter.js";
+import AdminNavbar from "components/Navbars/AdminNavBar.js";
+import ContactHeader from "components/Headers/ContactHeader.js";
+import BasicFooter from "components/Footers/BasicFooter.js";
 
 const Car = props => (
     <tr>
@@ -28,12 +18,12 @@ const Car = props => (
         <td>{props.car.consumption}</td>
         <td>{props.car.plateNumber}</td>
         <td>
-            <Link to={"/edit/"+props.car._id}>Szerkesztés</Link> | <a href='#' onClick={() => { props.deleteCar(props.car._id) }}>Törlés</a>
+            <Link to={"/edit/"+props.car._id}>Szerkesztés</Link> | <a href="/car-list-page" onClick={() => { props.deleteCar(props.car._id) }}>Törlés</a>
         </td>
     </tr>    
 )
 
-export default class CarsList extends Component {
+class CarsList extends Component {
     constructor(props) {
         super(props);
 
@@ -41,6 +31,10 @@ export default class CarsList extends Component {
 
         this.state = { cars: [] };
     }
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+      };
 
     componentDidMount() {
         axios.get('http://localhost:5000/cars/')
@@ -67,15 +61,13 @@ export default class CarsList extends Component {
     }
 
     render() {
-        return (
-            <div>
-              
-
-      <div className="section profile-content">
+    return (
+<>
+      <AdminNavbar />
+      <ContactHeader />
         <Container>
-            <div>
-              <div>
-                  <h5>Autók</h5> <br></br>
+            <div style={{textAlign: "center"}}>
+              <h3>Autók</h3>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
@@ -90,14 +82,33 @@ export default class CarsList extends Component {
                         {this.carsList()}
                     </tbody>
                 </table>
-              </div>
-            </div>  
-        </Container>
-      </div>
-
-
-
+                <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem",
+                textAlign: "center",
+              }}
+              onClick={this.onLogoutClick}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >Kijelentkezés</button>
             </div>
+                
+        </Container>
+        <BasicFooter />
+</>
         )
     }
 }
+CarsList.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(CarsList);

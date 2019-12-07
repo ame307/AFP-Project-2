@@ -5,7 +5,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
   CardTitle,
   Form,
   Input,
@@ -21,7 +20,6 @@ import {
 import BasicNavBar from "components/Navbars/BasicNavBar.js";
 import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import BasicFooter from "components/Footers/BasicFooter.js";
-import SectionLogin from "./index-sections/SectionLogin";
 
 function LandingPage() {
   document.documentElement.classList.remove("nav-open");
