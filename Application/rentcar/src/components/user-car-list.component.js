@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {
-    Container,
-    Row,
-    Col
+    Container
   } from "reactstrap";
   
   // core components
@@ -49,22 +47,9 @@ export default class OurCars extends Component {
 
 <BasicNavBar />
       <ContactHeader />
-      <div className="section profile-content">
-        <Container>
-          <div className="owner">
-            
-          </div>
-          <Row>
-            <Col className="ml-auto mr-auto text-center" md="6">
-            </Col>
-          </Row>
-          <br />
-          <Row>
-          <div className="section profile-content">
         <Container>
             <div className="section profile-content">
-                <h3>
-                <h5>Elérhető autók</h5> <br></br>
+                <br /><h3 style={{textAlign:"center"}}>Elérhető autók</h3> <br />
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
@@ -78,15 +63,10 @@ export default class OurCars extends Component {
                         {this.carsList()}
                     </tbody>
                 </table> 
-                </h3>
               <div>
               </div>
             </div>  
         </Container>
-      </div>
-          </Row>
-        </Container>
-      </div>
       <BasicFooter />
       </div>
         )

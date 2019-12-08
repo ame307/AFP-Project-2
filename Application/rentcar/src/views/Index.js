@@ -49,8 +49,7 @@ function LandingPage() {
                 <Button
                   className="btn-round"
                   color="info"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
+                  href="/our-cars"
                 >
                   Autó kínálatunk
                 </Button>
