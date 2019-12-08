@@ -82,17 +82,6 @@ class CarsList extends Component {
                         {this.carsList()}
                     </tbody>
                 </table>
-                <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem",
-                textAlign: "center",
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >Kijelentkezés</button>
             </div>
                 
         </Container>

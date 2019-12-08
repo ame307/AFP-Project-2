@@ -1,7 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 // nodejs library that concatenates strings
 import classnames from "classnames";
+import { logoutUser } from "../../actions/authActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 
 // reactstrap components
 import {
@@ -9,41 +13,48 @@ import {
   Navbar,
   Container
 } from "reactstrap";
-//import ProfilePage from "views/examples/AboutUsPage";
 
-function AdminNavbar() {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-  const [navbarCollapse, setNavbarCollapse] = React.useState(false);
+// const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+// const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
-  const toggleNavbarCollapse = () => {
-    setNavbarCollapse(!navbarCollapse);
-    document.documentElement.classList.toggle("nav-open");
+// const toggleNavbarCollapse = () => {
+//   setNavbarCollapse(!navbarCollapse);
+//   document.documentElement.classList.toggle("nav-open");
+// };
+
+// React.useEffect(() => {
+//   const updateNavbarColor = () => {
+//     if (
+//       document.documentElement.scrollTop > 299 ||
+//       document.body.scrollTop > 299
+//     ) {
+//       setNavbarColor("");
+//     } else if (
+//       document.documentElement.scrollTop < 300 ||
+//       document.body.scrollTop < 300
+//     ) {
+//       setNavbarColor("navbar-transparent");
+//     }
+//   };
+
+//   window.addEventListener("scroll", updateNavbarColor);
+
+//   return function cleanup() {
+//     window.removeEventListener("scroll", updateNavbarColor);
+//   };
+// });
+
+class AdminNavbar extends Component{
+
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
   };
 
-  React.useEffect(() => {
-    const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 299 ||
-        document.body.scrollTop > 299
-      ) {
-        setNavbarColor("");
-      } else if (
-        document.documentElement.scrollTop < 300 ||
-        document.body.scrollTop < 300
-      ) {
-        setNavbarColor("navbar-transparent");
-      }
-    };
-
-    window.addEventListener("scroll", updateNavbarColor);
-
-    return function cleanup() {
-      window.removeEventListener("scroll", updateNavbarColor);
-    };
-  });
-  return (
+  render(){
+    return(
     <Navbar
-      className={classnames("fixed-top", navbarColor)}
+      className={classnames("fixed-top",this.navbarColor)}
       color-on-scroll="300"
       expand="lg"
     >
@@ -52,7 +63,6 @@ function AdminNavbar() {
         <NavbarBrand
             data-placement="bottom"
             to="/car-list-page"
-            //target="_blank"
             tag={Link}
           >
             Autók listája
@@ -61,18 +71,25 @@ function AdminNavbar() {
           <NavbarBrand
             data-placement="bottom"
             to="/car-add-page"
-            //target="_blank"
             tag={Link}
           >
             Autó hozzáadása/szerkesztése
-          </NavbarBrand>        
-          
+          </NavbarBrand>  
+
+          <NavbarBrand
+            data-placement="bottom"
+            tag={Link}
+            onClick={this.onLogoutClick}
+          >
+            Kijelentkezés
+          </NavbarBrand>
+                
           <button
-            aria-expanded={navbarCollapse}
+            aria-expanded={this.navbarCollapse}
             className={classnames("navbar-toggler navbar-toggler", {
-              toggled: navbarCollapse
+              toggled: this.navbarCollapse
             })}
-            onClick={toggleNavbarCollapse}
+            onClick={this.toggleNavbarCollapse}
           >
             <span className="navbar-toggler-bar bar1" />
             <span className="navbar-toggler-bar bar2" />
@@ -81,7 +98,18 @@ function AdminNavbar() {
         </div>
       </Container>
     </Navbar>
-  );
+    )
+  }
 }
 
-export default AdminNavbar;
+AdminNavbar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(AdminNavbar);

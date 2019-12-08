@@ -86,7 +86,6 @@ class CreateCar extends Component {
       <AdminNavbar />
       <ContactHeader />
         <Container>
-          <div className="owner">
           <form onSubmit={this.onSubmit} id="create-car-form">
                     <div className="form-group">
                         <label>Márka: </label>
@@ -133,19 +132,7 @@ class CreateCar extends Component {
                         
                         <input type="submit" value="Create Car" className="btn btn-primary" />
                     </div>
-                </form>
-                <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem",
-                textAlign: "center",
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >Kijelentkezés</button>
-          </div>         
+                </form>         
         </Container>
         <BasicFooter />
 </>
