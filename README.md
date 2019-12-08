@@ -27,7 +27,7 @@ Ezzel elindítjuk a main scriptet, ami megnyitja nekünk az oldal kezdő lapját
 
 ## Admin felület elérése
 
-Az admin felületet csak URL-ből tudjuk elérni a `/login` útvonalon, ahol az autentikációt következően eltudjuk írni az admin funkciókat.
+Az admin felületet csak URL-ből tudjuk elérni a `/login` útvonalon, ahol az autentikációt követően eltudjuk érni az admin funkciókat.
 
 **felhasználónév:** admin
 **jelszó**: adminadmin
