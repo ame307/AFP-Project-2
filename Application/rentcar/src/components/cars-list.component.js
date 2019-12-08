@@ -31,10 +31,6 @@ class CarsList extends Component {
 
         this.state = { cars: [] };
     }
-    onLogoutClick = e => {
-        e.preventDefault();
-        this.props.logoutUser();
-      };
 
     componentDidMount() {
         axios.get('http://localhost:5000/cars/')

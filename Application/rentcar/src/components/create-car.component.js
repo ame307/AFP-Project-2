@@ -25,10 +25,6 @@ class CreateCar extends Component {
             plateNumber: ''
         }
     }
-    onLogoutClick = e => {
-        e.preventDefault();
-        this.props.logoutUser();
-      };
 
     onChangeBrand(e) {
         this.setState({

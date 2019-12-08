@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class EditCar extends Component {
+import { logoutUser } from "../actions/authActions";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
+class EditCar extends Component {
     constructor(props) {
         super(props);
 
@@ -79,7 +83,7 @@ export default class EditCar extends Component {
             plateNumber: ''
         })
 
-        window.location = '/';
+        window.location = '/car-list-page';
     }
 
 
@@ -134,3 +138,14 @@ export default class EditCar extends Component {
         )
     }
 }
+EditCar.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(EditCar);
