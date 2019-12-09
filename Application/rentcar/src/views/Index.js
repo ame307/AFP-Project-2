@@ -49,7 +49,8 @@ function LandingPage() {
                 <Button
                   className="btn-round"
                   color="info"
-                  href="/our-cars"
+                  href="#pablo"
+                  onClick={e => e.preventDefault()}
                 >
                   Autó kínálatunk
                 </Button>
@@ -63,7 +64,7 @@ function LandingPage() {
         </div>
         <div className="section section-dark text-center">
           <Container>
-            <h2 className="title">Kik vagyunk mi?</h2>
+            <h2 className="title">Amit az Ön számára kínálunk</h2>
             <Row>
             
               <Col md="4">
@@ -72,20 +73,19 @@ function LandingPage() {
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
-                        src={require("assets/img/faces/unknow.png")}
+                        src={require("assets/img/medal.jpg")}
                       />
                     </a>
                   </div>
                   <CardBody>
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <div className="author">
-                        <CardTitle tag="h4">Az ön neve</CardTitle>
-                        <h6 className="card-category">Munkaköre</h6>
+                        <CardTitle tag="h4">Megbízhatóság</CardTitle>
+                        {/* <h6 className="card-category">Munkaköre</h6> */}
                       </div>
                     </a>
                     <p className="card-description text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Elhivatottan végezzük munkánkat azért, hogy Ön az számára a legmegfelelőbb kínálatokat nyújthassuk munkatársainkkal együtt.
                     </p>
                   </CardBody>
                 </Card>
@@ -96,20 +96,19 @@ function LandingPage() {
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
-                        src={require("assets/img/faces/unknow.png")}
+                        src={require("assets/img/medal.jpg")}
                       />
                     </a>
                   </div>
                   <CardBody>
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <div className="author">
-                        <CardTitle tag="h4">Az ön neve</CardTitle>
-                        <h6 className="card-category">Munkaköre</h6>
+                        <CardTitle tag="h4">Rugalmasság</CardTitle>
+                        {/* <h6 className="card-category">Munkaköre</h6> */}
                       </div>
                     </a>
                     <p className="card-description text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Ügyfeleink és Partnereink számának növekedésével párhuzamosan kínálunk egyedi megoldásokat a járműkölcsönzés bármely területén.
                     </p>
                   </CardBody>
                 </Card>
@@ -120,20 +119,19 @@ function LandingPage() {
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <img
                         alt="..."
-                        src={require("assets/img/faces/unknow.png")}
+                        src={require("assets/img/medal.jpg")}
                       />
                     </a>
                   </div>
                   <CardBody>
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       <div className="author">
-                        <CardTitle tag="h4">Az ön neve</CardTitle>
-                        <h6 className="card-category">Munkaköre</h6>
+                        <CardTitle tag="h4">Profizmus</CardTitle>
+                        {/* <h6 className="card-category">Munkaköre</h6> */}
                       </div>
                     </a>
                     <p className="card-description text-center">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Munkatársainkat folyamatosan képzezzük, hogy versenyképességünket ne veszíthessük el az egyre széesedő piacon.
                     </p>
                   </CardBody>
                 </Card>
@@ -146,45 +144,8 @@ function LandingPage() {
             <Row>
               <Col className="ml-auto mr-auto" md="8">
                 <h2 className="text-center">Kérdése van?</h2>
-                <Form className="contact-form">
-                  <Row>
-                    <Col md="6">
-                      <label>Név</label>
-                      <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="nc-icon nc-single-02" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Kérjük adja meg a nevét" type="text" />
-                      </InputGroup>
-                    </Col>
-                    <Col md="6">
-                      <label>E-mail</label>
-                      <InputGroup>
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="nc-icon nc-email-85" />
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input placeholder="Adja meg e-mail címét" type="text" />
-                      </InputGroup>
-                    </Col>
-                  </Row>
-                  <label>Üzenet</label>
-                  <Input
-                    placeholder="Mondja el nekünk ötletét,meglátását..."
-                    type="textarea"
-                    rows="4"
-                  />
-                  <Row>
-                    <Col className="ml-auto mr-auto" md="4">
-                      <Button className="btn-fill" color="danger" size="lg">
-                        Üzenet küldése
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form>
+                <h4 className="text-center">Állunk rendelkezésére a hét bármely napján! Garantáljuk, hogy üzenetésre a lehető leggyorsabban fogunk válaszolni. Forduljon hozzánk bizalommal!</h4>
+                 <h4 className="text-center"><a href='/contact-page'>Ide</a> kattintva tud nekünk üzenni.</h4>
               </Col>
             </Row>
           </Container>
