@@ -22,7 +22,6 @@ import ContactPage from 'views/pages/ContactPage';
 import Login from "components/login.component";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import OurCars from "./components/user-car-list.component";
-import EditCar from "./components/edit-car.component";
 // others
 
 // Check for token to keep user logged in
@@ -62,9 +61,8 @@ ReactDOM.render(
         render={props => <OurCars {...props} />}
       />
 
-      <PrivateRoute exact path="/car-list-page" component={CarListPage} />
+      <PrivateRoute exact path="/car-list-page" component={CarListPage} />}  />
       <PrivateRoute exact path="/car-add-page" component={CarAddPage}  />
-      <PrivateRoute exact path="/edit/:id" component={EditCar}  />
 
       <Route
         path="/login"
