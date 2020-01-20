@@ -16,13 +16,15 @@ class CreateCar extends Component {
         this.onChangeModel = this.onChangeModel.bind(this);
         this.onChangeConsumption = this.onChangeConsumption.bind(this);
         this.onChangePlateNumber = this.onChangePlateNumber.bind(this);
+        this.onChangeReserved = this.onChangeReserved.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             brand: '',
             model: '',
             consumption: 0,
-            plateNumber: ''
+            plateNumber: '',
+            reserved: ''
         }
     }
 
@@ -50,6 +52,11 @@ class CreateCar extends Component {
         })
     }
 
+    onChangeReserved(e){
+        this.setState({
+            reserved: e.target.value
+        })
+    }
     onSubmit(e) {
         e.preventDefault();
 
@@ -121,6 +128,16 @@ class CreateCar extends Component {
                             className="form-control"
                             value={this.state.plateNumber}
                             onChange={this.onChangePlateNumber}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Foglalva: </label>
+                        <input type="text"
+                             placeholder="IGEN/NEM"
+                            required
+                            className="form-control"
+                            value={this.state.reserved}
+                            onChange={this.onChangeReserved}
                         />
                     </div>
 
