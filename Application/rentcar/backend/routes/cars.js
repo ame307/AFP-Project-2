@@ -56,6 +56,7 @@ router.post('/update/:id', (req, res) => {
             car.model = req.body.model;
             car.consumption = Number(req.body.consumption);
             car.plateNumber = req.body.plateNumber;
+            car.reserved = req.body.reserved;
 
             car.save()
                 .then(car => res.json('Car updated!'))
