@@ -3,7 +3,7 @@
 ## 1. A rendszer célja, és nem céljai
 A rendszer alapvető célja egy autókölcsönző webes felületű alkalmazás mellyel egy autókölcsönző üzleti folymatai válnak egyszerűbbé. Az alkalmazás segítségével a megrendelő versenyben marad a rivális autókölcsönzőkkel szemben. Az alkalmazás installálása után az autókölcsönző hatékonysága növekedni fog. A rendszernek nem célja, teljes egészében lecserélni a személyes kommunikációt. Az alkalmazás elsősorba az ott dolgozók munkáját fogja könnyebbé tenni.
 
-## 2. Jelenlegi helyet leírása
+## 2. Jelenlegi helyzet leírása
 Jelenleg az autókölcsönzőben azt, hogy ki, milyen autót, mikor, mennyi időre bérelt ki, csak papír alapon tekinthető meg. A papír alapú módszer, működik, de eléggé lassú, emberi hibából adódóan a félreértések esélye jelentős. A megírt lapok elveszhetnek, szennyeződhetnek, az emberi írás mások számára olvashatatlan lehet. Az emberek jelenleg csak úgy tudnak tájékozódni az elérhető autókról, azok típusáról, tulajdonságairók, ha személyesen bemennek a céghez. Ezt a plusz utat szeretné a megrendelő kikerülni, azzal, hogy online elérhetővé teszi azon autókat melyeket a cég kínál. A megrendelő szereti a modern dolgokat, többek között is ezért is gondolta úgy, hogy itt az ideje elkészíteni az alkalmazást.
 
 # 3. Vágyálomrendszer leírása
