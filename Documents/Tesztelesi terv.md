@@ -17,11 +17,11 @@ A fejlesztés vége felé közeledve a fejlesztői csapat tagjai a lehető legt�
 
 
 ## Tesztelendő elvárások
-![TesztelendőElvárások](Pictures/tesztelendo_elvarasok.jpg)
+![TesztelendőElvárások](Pictures/tesztelendo_elvarasok2.jpg)
 
 
 ## Tesztelt elvárások
-![TeszteltElvárások](Pictures/tesztelt_elvarasok.jpg)
+![TeszteltElvárások](Pictures/tesztelt_elvarasok2.jpg)
 
 
 ## Elfogadási kritériumok
