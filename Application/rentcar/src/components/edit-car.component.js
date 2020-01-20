@@ -13,13 +13,15 @@ class EditCar extends Component {
         this.onChangeModel = this.onChangeModel.bind(this);
         this.onChangeConsumption = this.onChangeConsumption.bind(this);
         this.onChangePlateNumber = this.onChangePlateNumber.bind(this);
+        this.onChangeReserved = this.onChangeReserved.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             brand: '',
             model: '',
             consumption: 0,
-            plateNumber: ''
+            plateNumber: '',
+            reserved: ''
         }
     }
 
@@ -30,7 +32,8 @@ class EditCar extends Component {
                     brand: res.data.brand,
                     model: res.data.model,
                     consumption: res.data.consumption,
-                    plateNumber: res.data.plateNumber
+                    plateNumber: res.data.plateNumber,
+                    reserved: res.data.reserved
                 })
             })
             .catch(function (err) {
@@ -62,6 +65,12 @@ class EditCar extends Component {
         })
     }
 
+    onChangeReserved(e){
+        this.setState({
+            reserved: e.target.value
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -69,7 +78,8 @@ class EditCar extends Component {
             model: this.state.model,
             brand: this.state.brand,
             consumption: this.state.consumption,
-            plateNumber: this.state.plateNumber
+            plateNumber: this.state.plateNumber,
+            reserved: this.state.reserved
         }
 
         console.log(car);
@@ -80,7 +90,8 @@ class EditCar extends Component {
             model: '',
             brand: '',
             consumption: 0,
-            plateNumber: ''
+            plateNumber: '',
+            reserved: ''
         })
 
         window.location = '/car-list-page';
@@ -127,6 +138,15 @@ class EditCar extends Component {
                             className="form-control"
                             value={this.state.plateNumber}
                             onChange={this.onChangePlateNumber}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Reserved: </label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.reserved}
+                            onChange={this.onChangeReserved}
                         />
                     </div>
 
