@@ -32,8 +32,3 @@ A teszt sikerességének kritériumai:</br>
 
 ## Leszállítandó dokumentumok
 ![LeszállítandóTesztDokumentumok](Pictures/leszallitando_teszt_dokumentumok.jpg)
-
-## Tesztelési jegyzőkönyvek
-![TesztelésiJegyzőkönyv](Pictures/tesztelesi_jegyzokonyv_display.jpg)
-![TesztelésiJegyzőkönyv](Pictures/tesztelesi_jegyzokonyv_login.jpg)
-![TesztelésiJegyzőkönyv](Pictures/tesztelesi_jegyzokonyv_store_data_safe.jpg)
