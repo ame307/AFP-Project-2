@@ -10,9 +10,9 @@ A webes alkalmazásban az üzletvezetőnek van a legnagyobb jogköre. Amíg a we
 
 ## 3. Üzleti folyamatok modellje
 ### Jelenlegi üzleti folyamatok modellje:
-![JelenlegiÜzletiFolyamatok](Pictures/jelenlegi.jpg)
+![JelenlegiÜzletiFolyamatok](Pictures/jelenlegi2.jpg)
 
-A jelenlegi rendszerben elég körülményes egy autó kibérlése és használata. Ezt hivatott alkalmazásunk könnyíteni. Most az ügyfél felkeresi az autókölcsönzőt, ahol meg tudja tekinteni a választékot. Miután eldöntötte, hogy melyik autót szeretné és mikor akkor egyeztet egy időpontot. Majd a megbeszélt időpontban ismét befárad a kölcsönzőbe, egy alkalmazottal egyeztetve elviszi az autót. Az előre leegyeztetett dátumra visszaviszi az autót és újra bekerülhet az elérhető autók listájába.
+A jelenlegi rendszerben elég körülményes egy autó kibérlése és használata. Ezt hivatott alkalmazásunk könnyíteni. Most az ügyfél felkeresi az autókölcsönzőt vagy ellátogat az autókölcsönző weboldalára, ahol meg tudja tekinteni a választékot. Miután eldöntötte, hogy melyik autót szeretné és mikor akkor egyeztet egy időpontot. Majd a megbeszélt időpontban ismét befárad a kölcsönzőbe, egy alkalmazottal egyeztetve elviszi az autót. Az előre leegyeztetett dátumra visszaviszi az autót és újra bekerülhet az elérhető autók listájába.
 
 ### Igényelt üzleti folyamatok modellje:
 ![IgényeltÜzletiFolyamatok](Pictures/igenyelt.jpg)
