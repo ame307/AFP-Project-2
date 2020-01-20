@@ -25,7 +25,7 @@ export default class OurCars extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/cars/')
+        axios.get('http://localhost:5000/cars/filtered')
             .then(res => {
                 this.setState({ cars: res.data })
             })
