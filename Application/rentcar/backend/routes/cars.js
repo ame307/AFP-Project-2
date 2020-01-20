@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 let Car = require('../models/car.model');
 
-var query = { reserved: false };
+var query = { reserved: "NEM" };
 
 router.get('/', (req, res) =>{
     Car.find()
