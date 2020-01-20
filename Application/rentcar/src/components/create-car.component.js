@@ -64,7 +64,8 @@ class CreateCar extends Component {
             brand: this.state.brand,
             model: this.state.model,
             consumption: this.state.consumption,
-            plateNumber: this.state.plateNumber
+            plateNumber: this.state.plateNumber,
+            reserved: this.state.reserved
         }
 
         console.log(car);
@@ -75,7 +76,8 @@ class CreateCar extends Component {
             brand: "",
             model: "",
             consumption: 0,
-            plateNumber: ""
+            plateNumber: "",
+            reserved: ""
         })
 
         //window.location = '/create';
