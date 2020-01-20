@@ -2,8 +2,16 @@ const express = require('express');
 const router = express.Router();
 let Car = require('../models/car.model');
 
+var query = { reserved: false };
+
 router.get('/', (req, res) =>{
     Car.find()
+        .then(cars => res.json(cars))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.get('/filtered', (req, res) =>{
+    Car.find(query)
         .then(cars => res.json(cars))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -13,6 +21,7 @@ router.post('/add', (req, res) => {
         const model = req.body.model;
         const consumption = Number(req.body.consumption);
         const plateNumber = req.body.plateNumber;
+
     
         const newCar = new Car({
             brand,
