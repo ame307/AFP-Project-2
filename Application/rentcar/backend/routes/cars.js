@@ -21,13 +21,14 @@ router.post('/add', (req, res) => {
         const model = req.body.model;
         const consumption = Number(req.body.consumption);
         const plateNumber = req.body.plateNumber;
-
+        const reserved = req.body.reserved;
     
         const newCar = new Car({
             brand,
             model,
             consumption,
-            plateNumber
+            plateNumber,
+            reserved
         });
     
         newCar.save()
