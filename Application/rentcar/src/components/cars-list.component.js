@@ -20,6 +20,7 @@ const Car = props => (
         <td>
             <Link to={"/edit/"+props.car._id}>Szerkesztés</Link> | <a href="/car-list-page" onClick={() => { props.deleteCar(props.car._id) }}>Törlés</a>
         </td>
+        <td>{props.car.reserved}</td>
     </tr>    
 )
 
@@ -72,6 +73,7 @@ class CarsList extends Component {
                             <th>Fogyasztás L/100Km</th>
                             <th>Rendszám</th>
                             <th>Interakciók</th>
+                            <th>Lefoglalva</th>
                         </tr>
                     </thead>
                     <tbody>
